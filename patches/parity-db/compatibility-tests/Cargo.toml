@@ -1,0 +1,12 @@
+[package]
+name = "parity-db-backport-compatibility"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+original = { package = "parity-db", version = "=0.4.13" }
+patched = { package = "parity-db", path = ".." }
+tempfile = "3.2"

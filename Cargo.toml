@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-exclude = ["patches/sdk-tracing/sc-tracing", "patches/sdk-tracing/sp-tracing", "patches/multihash"]
+exclude = ["patches/sdk-tracing/sc-tracing", "patches/sdk-tracing/sp-tracing", "patches/multihash", "patches/parity-db"]
 
 members = [
     'client/distance',
@@ -289,3 +289,6 @@ sp-tracing = { path = "patches/sdk-tracing/sp-tracing" }
 # Replace the last core2 dependency with the maintained no_std_io2 fork.
 # Source and scope: patches/multihash/PATCH.md.
 multihash = { path = "patches/multihash" }
+# Backport the log-cleanup deadlock fix while retaining SDK-compatible ParityDB 0.4.13.
+# Source and compatibility: patches/parity-db/PATCH.md.
+parity-db = { path = "patches/parity-db" }

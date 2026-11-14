@@ -467,7 +467,13 @@ check_benchmarks:
     - job: publish_omni_bencher
       artifacts: true
   script:
-    - bash ./scripts/check_benchmarks_ci.sh
+    - mkdir -p target/benchmark-check
+    - set -o pipefail; bash ./scripts/check_benchmarks_ci.sh 2>&1 | tee target/benchmark-check/output.log
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/benchmark-check/
 
 gtest_build:
   stage: build
@@ -519,6 +525,25 @@ tests_gtest:
     - export RUST_MIN_STACK=16777216 # 16MB stack size otherwise CI fail during LLVM's Thin LTO (Link Time Optimization) phase
     - ./scripts/cargo_with_vendor.sh tu --no-default-features --features gtest,std,standalone
     - ./scripts/cargo_with_vendor.sh tf --no-default-features --features gtest,std,standalone
+
+tests_parity_db:
+  extends:
+    - .env
+    - .with_dependencies
+  stage: tests
+  rules:
+    - if: '$CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == "master"'
+      changes:
+        - patches/parity-db/**/*
+        - Cargo.toml
+        - Cargo.lock
+        - .gitlab-ci.yml
+    - when: never
+  variables:
+    CARGO_TARGET_DIR: target/parity-db
+  script:
+    - ./scripts/cargo_with_vendor.sh test --manifest-path patches/parity-db/Cargo.toml
+    - ./scripts/cargo_with_vendor.sh test --manifest-path patches/parity-db/compatibility-tests/Cargo.toml
 
 tests_cucumber:
   extends: .tests_template

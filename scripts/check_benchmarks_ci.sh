@@ -71,12 +71,15 @@ target/frame-omni-bencher \
   --weight-path=./runtime/shared/weights/
 
 echo "Running pallet benchmark smoke test..."
+# CI checks execution and generated code, not weight calibration. The SDK defaults
+# to ten seconds per benchmark, even with --repeat=1, and floods logs for skipped cases.
 target/frame-omni-bencher \
   v1 benchmark pallet \
   --chain "${CHAIN_SPEC}" \
   --genesis-builder=spec-genesis \
   --steps=2 \
   --repeat=1 \
+  --min-duration=0 \
   --pallet="*" \
   --extrinsic="*" \
   --output=./runtime/shared/weights/
