@@ -40,15 +40,15 @@ libc = { version = "0.2.155" }
 log = { version = "0.4.22", default-features = true }
 parking_lot = { version = "0.12.1", default-features = true }
 rustc-hash = { version = "1.1.0" }
-sc-client-api = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
-sc-tracing-proc-macro = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
+sc-client-api = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
+sc-tracing-proc-macro = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
 serde = { version = "1.0.214", default-features = true }
-sp-api = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
-sp-blockchain = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
-sp-core = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
-sp-rpc = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
-sp-runtime = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
-sp-tracing = { default-features = true, git = "https://github.com/duniter/duniter-polkadot-sdk", branch = "duniter-substrate-v1.22.3" }
+sp-api = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
+sp-blockchain = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
+sp-core = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
+sp-rpc = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
+sp-runtime = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
+sp-tracing = { default-features = true, git = "https://github.com/CapitaMoney/capita-polkadot-sdk", rev = "4fd8081b96595ff1341ba4e7754a21dd8a28bfb8" }
 thiserror = { version = "1.0.64" }
 tracing = { version = "0.1.37", default-features = true }
 tracing-log = { version = "0.2.0", features = ["interest-cache"] }
